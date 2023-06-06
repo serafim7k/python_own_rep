@@ -16,7 +16,7 @@ def win():
             if board[w][n] == 'X':
                 crosses_count += 1
             if crosses_count == 3:
-                return 'Player won!\n'
+                return 'Player won!'
     for w in range(1, len(board) - 1):
         crosses_count = 0
         for o in range(1, len(board) - 1):
@@ -40,6 +40,39 @@ def win():
                 stat -= 1
             if crosses_count == 3:
                 return 'Player won!'
+
+
+def lose():
+    for w in range(1, len(board)):
+        crosses_count = 0
+        for n in range(1, len(board[w])):
+            if board[w][n] == 'O':
+                crosses_count += 1
+            if crosses_count == 3:
+                return 'Bot won!'
+    for w in range(1, len(board) - 1):
+        crosses_count = 0
+        for o in range(1, len(board) - 1):
+            if board[o][w] == 'O':
+                crosses_count += 1
+            if crosses_count == 3:
+                return 'Bot won!'
+    for w in range(1, len(board) - 1):
+        crosses_count = 0
+        for n in range(1, len(board) - 1):
+            if board[n][n] == 'O':
+                crosses_count += 1
+            if crosses_count == 3:
+                return 'Bot won!'
+    for w in range(1, len(board)):
+        crosses_count = 0
+        stat = len(board) - 2
+        for n in range(1, len(board) - 1):
+            if board[n][stat] == 'O':
+                crosses_count += 1
+                stat -= 1
+            if crosses_count == 3:
+                return 'Bot won!'
 
 
 # for y in range(1, len(board)):
@@ -89,6 +122,13 @@ if play_with == 'bot':
             for i in range(len(board)):
                 print(board[i])
             print()
+
+        if_lose = lose()
+
+        if if_lose == 'Bot won!':
+            print('Bot won!')
+            gameRunning = False
+            break
 else:
     while gameRunning:
         print('player_1')
@@ -125,3 +165,10 @@ else:
             for i in range(len(board)):
                 print(board[i])
             print()
+
+        if_lose = lose()
+
+        if if_lose == 'Bot won!':
+            print('Bot won!')
+            gameRunning = False
+            break
