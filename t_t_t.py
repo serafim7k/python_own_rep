@@ -100,7 +100,7 @@ def lose():
 #         board[y][x] = Fore.BLUE + str(board[y][x])
 
 for i in range(len(board)):
-    print(board[i])
+    print(' | '.join(board[i]))
 print()
 
 gameRunning = True
@@ -123,7 +123,7 @@ if play_with == 'bot':
         if board[user_coordinates_Y][user_coordinates_X] != 'O':
             board[user_coordinates_Y][user_coordinates_X] = 'X'
             for i in range(len(board)):
-                print(board[i])
+                print(' | '.join(board[i]))
             print()
 
         if_win = win()
@@ -146,7 +146,7 @@ if play_with == 'bot':
         if board[coordinates_Y][coordinates_X] != 'X':
             board[coordinates_Y][coordinates_X] = 'O'
             for i in range(len(board)):
-                print(board[i])
+                print(' | '.join(board[i]))
             print()
 
         if_lose = lose()
@@ -172,7 +172,7 @@ else:
         if board[user_coordinates_Y][user_coordinates_X] != 'O':
             board[user_coordinates_Y][user_coordinates_X] = 'X'
             for i in range(len(board)):
-                print(board[i])
+                print(' | '.join(board[i]))
             print()
 
         if_win = win()
@@ -189,7 +189,7 @@ else:
         if board[coordinates_Y][coordinates_X] != 'X':
             board[coordinates_Y][coordinates_X] = 'O'
             for i in range(len(board)):
-                print(board[i])
+                print(' | '.join(board[i]))
             print()
 
         if_lose = lose()
